@@ -4,6 +4,7 @@
 </div>
 <div class="divider"></div>
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 ">
+    <!-- SETTINGS -->
     <section class="card bg-base-100 border border-base-300 shadow">
         <div class="card-body">
             <h2 class="card-title text-sm">Missing Value Handling</h2>
@@ -66,14 +67,37 @@
             <div class="divider my-2"></div>
             <div class="card-actions justify-between items-center">
                 <div class="flex items-center gap-1">
-                    <p class="material-symbols-outlined text-success">check_circle</p><p class="text-xs font-medium">Succesfully executed!</p>
+                    <p class="material-symbols-outlined text-success" style="font-size: 1rem">check_circle</p><p class="text-xs font-medium">Succesfully executed!</p>
                 </div>
                 <button class="btn btn-sm btn-neutral">Run</button>
             </div>
         </div>
     </section>
-    <section>
-        <h2 class="mb-3 text-sm font-medium">Data Statistics</h2>
-        <div class="bg-base-100 border border-base-300 shadow p-4 "></div>
+    <!-- STATISTICS -->
+    <section class="card bg-base-100 border border-base-300 shadow">
+        <div class="card-body">
+            <h2 class="card-title text-sm">Data Visualisation</h2>
+            <div role="tablist" class="tabs tabs-sm tabs-lift">
+            <a role="tab" class="tab">Histograms</a>
+            <a role="tab" class="tab">Missing Values</a>
+            <a role="tab" class="tab tab-active">Outliers</a>
+            <div class="tab-content border-base-300 bg-base-100 p-4">
+                <div class="grid grid-cols-2">
+                    <fieldset class="fieldset">
+                        <legend class="label">Feature</legend>
+                        <select class="select select-xs">
+                            <option disabled>Temperature</option>
+                            <option disabled>Rainfall_mm</option>
+                            <option disabled selected>Sales_EUR</option>
+                        </select>
+                    </fieldset>
+                    
+                </div>
+                <img class="mt-4" src="images/z-scores.webp" alt="Z-score analysis">
+            </div>
+            <a role="tab" class="tab">Correlations</a>
+            <a role="tab" class="tab">Variances</a>
+            </div>
+        </div>
     </section>
 </div>
