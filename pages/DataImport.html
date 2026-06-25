@@ -1,0 +1,139 @@
+<div class="flex justify-between">
+    <h1 class="text-xl font-bold">Data Import</h1>
+    <div class="flex align-center gap-1"><span class="font-medium">Status:</span> Implemented <span class="material-symbols-outlined text-success">check_circle</span></div>
+</div>
+<div class="divider"></div>
+<h2 class="mb-3 text-sm font-medium">Data Source</h2>
+<div class="tabs tabs-lift">
+  <input type="radio" name="my_tabs_3" class="tab" aria-label="File" checked="checked"/>
+  <div class="tab-content bg-base-100 border-base-300 p-4 grid grid-cols-1 lg:grid-cols-2 gap-8">
+    <fieldset class="fieldset">
+        <legend class="fieldset-legend">Select File</legend>
+        <div class="join">
+            <input type="text" class="input join-item text-black border-base-300 cursor-text" value="Ice_Cream_Sales.csv" disabled />
+            <button class="btn join-item border-base-300" disabled>Browse</button>    
+        </div>
+        <p class="label">1 File was selected</p>
+    </fieldset>
+    <fieldset class="fieldset">
+        <legend class="fieldset-legend">File Information</legend>
+        <div class="bg-base-200 border p-2 border-base-300 rounded h-20 text-sm">
+            This dataset contains information about ice cream sales in the city of Graz.
+            It was collected as part of the research project "AIce cream".
+        </div>
+    </fieldset>
+  </div>
+  <input type="radio" name="my_tabs_3" class="tab tab-disabled" aria-label="URL"  />
+  <input type="radio" name="my_tabs_3" class="tab tab-disabled" aria-label="SQL" />
+</div>
+<div class="mb-3 mt-6 flex justify-between items-center">
+    <h2 class="text-sm font-medium">Data Preview</h2>
+    <div class="text-xs font-medium">Showing 10 of 3698 rows</div>
+</div>
+<div class="overflow-x-auto">
+  <table class="table table-xs">
+    <thead>
+      <tr class="text-xs">
+        <th></th>
+        <th>Temperature_C</th>
+        <th>Is_Weekend</th>
+        <th>Is_Holiday</th>
+        <th>Rainfall_mm</th>
+        <th>Flavour</th>
+        <th>Sales_EUR</th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr class="hover:bg-base-300">
+      <th>1</th>
+      <td>32.5</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>Vanilla</td>
+      <td>825.96</td>
+    </tr>
+    <tr class="hover:bg-base-300">
+      <th>2</th>
+      <td>18.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>5.2</td>
+      <td>Chocolate</td>
+      <td>213.74</td>
+    </tr>
+    <tr class="hover:bg-base-300">
+      <th>3</th>
+      <td>28.2</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>Mango</td>
+      <td>757.37</td>
+    </tr>
+    <tr class="hover:bg-base-300">
+      <th>4</th>
+      <td>30.1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>Vanilla</td>
+      <td>641.08</td>
+    </tr>
+    <tr class="hover:bg-base-300">
+      <th>5</th>
+      <td>15.5</td>
+      <td>0</td>
+      <td>0</td>
+      <td>12.4</td>
+      <td>Mint Chip</td>
+      <td>47.19</td>
+    </tr>
+    <tr class="hover:bg-base-300">
+      <th>6</th>
+      <td>26.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1.5</td>
+      <td>Chocolate</td>
+      <td>633.19</td>
+    </tr>
+    <tr class="hover:bg-base-300">
+      <th>7</th>
+      <td>34.0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>Mango</td>
+      <td>1250.95</td>
+    </tr>
+    <tr class="hover:bg-base-300">
+      <th>8</th>
+      <td>22.1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>Strawberry</td>
+      <td>418.01</td>
+    </tr>
+    <tr class="hover:bg-base-300">
+      <th>9</th>
+      <td>29.5</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.5</td>
+      <td>Vanilla</td>
+      <td>591.37</td>
+    </tr>
+    <tr class="hover:bg-base-300">
+      <th>10</th>
+      <td>31.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>Mint Chip</td>
+      <td>799.51</td>
+    </tr>
+  </tbody>
+  </table>
+</div>
