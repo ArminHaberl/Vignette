@@ -3,3 +3,77 @@
     <div class="flex align-center gap-1"><span class="font-medium">Status:</span> Implemented <span class="material-symbols-outlined text-success">check_circle</span></div>
 </div>
 <div class="divider"></div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 ">
+    <section class="card bg-base-100 border border-base-300 shadow">
+        <div class="card-body">
+            <h2 class="card-title text-sm">Missing Value Handling</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-2">
+                <fieldset class="fieldset">
+                    <legend class="label">Numerical Values</legend>
+                      <select class="select select-sm">
+                        <option disabled>Drop Rows</option>
+                        <option disabled selected>Replace with Mean</option>
+                        <option disabled>Replace with Median</option>
+                        <option disabled>Replace based on Regression</option>
+                    </select>
+                </fieldset>
+                <fieldset class="fieldset">
+                    <legend class="label">Categorical Values</legend>
+                      <select class="select select-sm">
+                        <option disabled>Drop Rows</option>
+                        <option disabled selected>Replace with Most Frequent Value</option>
+                        <option disabled>Replace with MISSING</option>
+                    </select>
+                </fieldset>
+            </div>
+            <h2 class="card-title text-sm mt-4">Outlier Handling</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-2">
+                <fieldset class="fieldset">
+                    <legend class="label">Detection Method</legend>
+                    <select class="select select-sm">
+                        <option disabled>No Detection</option>
+                        <option disabled selected>Detect based on Z-Scores</option>
+                        <option disabled>Detect based on Interquartile Range</option>
+                    </select>
+                </fieldset>
+                <fieldset class="fieldset">
+                    <legend class="label">Handling Action</legend>
+                    <select class="select select-sm">
+                        <option disabled>No Action</option>
+                        <option disabled selected>Drop Rows</option>
+                        <option disabled>Truncate Values</option>
+                    </select>
+                </fieldset>
+            </div>
+            <h2 class="card-title text-sm mt-4">Feature Engineering</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-2">
+                <fieldset class="fieldset">
+                    <legend class="label">Correlation Threshold</legend>
+                    <select class="select select-sm">
+                        <option disabled>No Threshold</option>
+                        <option disabled selected>Drop Features with r > 0.95</option>
+                        <option disabled>Drop Features with r > 0.90</option>
+                    </select>
+                </fieldset>
+                <fieldset class="fieldset">
+                    <legend class="label">Zero-Variance Filter</legend>
+                    <select class="select select-sm">
+                        <option disabled>Do not Drop Features</option>
+                        <option disabled selected>Drop Features with Zero-Variance</option>
+                    </select>
+                </fieldset>
+            </div>
+            <div class="divider my-2"></div>
+            <div class="card-actions justify-between items-center">
+                <div class="flex items-center gap-1">
+                    <p class="material-symbols-outlined text-success">check_circle</p><p class="text-xs font-medium">Succesfully executed!</p>
+                </div>
+                <button class="btn btn-sm btn-neutral">Run</button>
+            </div>
+        </div>
+    </section>
+    <section>
+        <h2 class="mb-3 text-sm font-medium">Data Statistics</h2>
+        <div class="bg-base-100 border border-base-300 shadow p-4 "></div>
+    </section>
+</div>
