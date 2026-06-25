@@ -3,3 +3,75 @@
     <div class="flex align-center gap-1"><span class="font-medium">Status:</span> Implemented <span class="material-symbols-outlined text-success">check_circle</span></div>
 </div>
 <div class="divider"></div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+    <!-- SETTINGS -->
+    <section class="card bg-base-100 border border-base-300 shadow">
+        <div class="card-body">
+            <h2 class="card-title text-sm">Training Objective</h2>
+            <div class="grid grid-cols-1 xl:grid-cols-2 gap-2">
+                <fieldset class="fieldset">
+                    <legend class="label">Target Column</legend>
+                    <select class="select select-sm">
+                        <option disabled>Temperature_C</option>
+                        <option disabled >Rainfall_mm</option>
+                        <option disabled selected>Sales_EUR</option>
+                    </select>
+                </fieldset>
+                <fieldset class="fieldset">
+                    <legend class="label">Optimization Metric</legend>
+                    <select class="select select-sm">
+                        <option disabled>R^2</option>
+                        <option disabled selected>Adjusted R^2</option>
+                        <option disabled>MAE</option>
+                        <option disabled>MSE</option>
+                        <option disabled>RMSE</option>
+                        <option disabled>MAPE</option>
+                    </select>
+                </fieldset>
+            </div>
+            <h2 class="card-title text-sm mt-4">Models to Train</h2>
+            <div class="grid grid-cols-1 xl:grid-cols-2 gap-2">
+                <label class="label"> <input type="checkbox" checked="checked" class="checkbox checkbox-sm" disabled/>Regression Tree</label>
+                <label class="label"> <input type="checkbox" checked="checked" class="checkbox checkbox-sm" disabled/>Random Forest</label>
+                <label class="label"> <input type="checkbox" checked="checked" class="checkbox checkbox-sm" disabled/>Gradient Boosted Trees</label>
+                <label class="label"> <input type="checkbox" checked="checked" class="checkbox checkbox-sm" disabled/>XGBoost Tree Ensemble</label>
+            </div>
+            <h2 class="card-title text-sm mt-4">Data Partitioning</h2>
+            <div class="grid grid-cols-1 xl:grid-cols-2 gap-2">
+                <fieldset class="fieldset">
+                    <legend class="label">Sampling Method</legend>
+                    <select class="select select-sm">
+                        <option disabled selected>Random</option>
+                        <option disabled>Stratified</option>
+                        <option disabled>Linear</option>
+                        <option disabled>First Rows</option>
+                    </select>
+                </fieldset>
+                <fieldset class="fieldset">
+                    <legend class="label">Test Set Ratio (%)</legend>
+                    <input type="number" class="input input-sm text-black cursor-text" value="30" disabled/>
+                </fieldset>
+                <fieldset class="fieldset">
+                    <legend class="label">Seed Value</legend>
+                    <input type="number" class="input input-sm text-black cursor-text" value="481357" disabled/>
+                </fieldset>
+                <label class="label"> <input type="checkbox" class="checkbox checkbox-sm" disabled/>Use Random Seed</label>
+                
+                
+            </div>
+            <div class="divider my-2"></div>
+            <div class="card-actions justify-between items-center">
+                <div class="flex items-center gap-1">
+                    <p class="material-symbols-outlined text-success" style="font-size: 1rem">check_circle</p><p class="text-xs font-medium">Succesfully trained!</p>
+                </div>
+                <button class="btn btn-sm btn-neutral">Train</button>
+            </div>
+        </div>
+    </section>
+    <!-- STATISTICS -->
+    <section class="card bg-base-100 border border-base-300 shadow">
+        <div class="card-body">
+            <h2 class="card-title text-sm">Progress Visualisation</h2>
+        </div>
+    </section>
+</div>
