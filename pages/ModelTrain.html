@@ -74,26 +74,40 @@
         <div class="card-body">
             <h2 class="card-title text-sm">Model Performance</h2>
             <div role="tablist" class="tabs tabs-sm tabs-lift">
-            <a role="tab" class="tab tab-disabled">Training Progress</a>
-            <a role="tab" class="tab tab-disabled">Model Comparison</a>
-            <a role="tab" class="tab tab-active">Final Model</a>
-            <div class="tab-content border-base-300 bg-base-100 p-4">
-                <div class="grid grid-cols-2">
-                    <fieldset class="fieldset">
-                        <legend class="label">Feature</legend>
-                        <select class="select select-xs">
-                            <option disabled>Temperature</option>
-                            <option disabled>Rainfall_mm</option>
-                            <option disabled selected>Sales_EUR</option>
-                        </select>
-                    </fieldset>
-                    <div class="flex justify-end items-center gap-1">
-                        <span class="material-symbols-outlined" style="font-size: 1rem">info</span><span class="text-xs font-medium">4 Outliers removed!</span>
+                <a role="tab" class="tab tab-disabled">Training Progress</a>
+                <a role="tab" class="tab tab-active">Model Comparison</a>
+                <div class="tab-content border-base-300 bg-base-100 p-4">
+                    <h3 class="card-title text-xs my-2">Performance (adjusted R^2)</h3>
+                    <div class="grid grid-cols-4 items-center gap-2">
+                        <p class="label text-xs">Linear Regression: </p>
+                        <p class="label text-xs font-bold justify-self-center">0.886</p>
+                        <progress class="progress col-span-2" value="88" max="100"></progress>
+                        <p class="label text-xs">Random Forest: </p>
+                        <p class="label text-xs font-bold justify-self-center">0.737</p>
+                        <progress class="progress col-span-2" value="73" max="100"></progress>
+                        <p class="label text-xs">Gradient Boosted Trees: </p>
+                        <p class="label text-xs font-bold justify-self-center">0.873</p>
+                        <progress class="progress col-span-2" value="87" max="100"></progress>
+                        <p class="label text-xs">XGBoost Tree Ensemble: </p>
+                        <p class="label text-xs font-bold justify-self-center">0.945</p>
+                        <progress class="progress col-span-2" value="94" max="100"></progress>
                     </div>
-                    
+                    <div class="divider"></div>
+                    <h3 class="card-title text-xs my-2">Details of Best Model</h3>
+                    <p class="label text-xs">Best Model: <span class="font-medium">XGBoost Tree Ensemble</span></p>
+                    <table class="table table-xs table-zebra mt-4">
+                        <thead>
+                            <tr class="text-xs"> <th>Metric</th> <th>Value</th> </tr>
+                        </thead>
+                        <tbody>
+                            <tr> <td>R^2</td> <th>0.945</th> </tr>
+                            <tr> <td>Adjusted R^2</td> <th>0.945</th> </tr>
+                            <tr> <td>Mean Absolute Error (MAE)</td> <th>1.607</th> </tr>
+                            <tr> <td>Root Mean Squared Error (RMSE)</td> <th>2.030</th> </tr>
+                            <tr> <td>Mean Absolute Percentage Error (MAPE)</td> <th>0.034</th> </tr>
+                        </tbody>
+                    </table>
                 </div>
-                <img class="mt-4" src="images/z-scores.webp" alt="Z-score analysis">
-            </div>
             </div>
         </div>
     </section>
