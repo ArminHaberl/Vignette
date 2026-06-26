@@ -72,7 +72,7 @@
             </div>
         </div>
     </section>
-    <!-- STATISTICS -->
+    <!-- EXPLANATIONS -->
     <section class="card bg-base-100 border border-base-300 shadow">
         <div class="card-body">
             <h2 class="card-title text-sm">Model Explanation</h2>
@@ -80,31 +80,11 @@
                 <a role="tab" class="tab tab-disabled">Calculation Progress</a>
                 <a role="tab" class="tab tab-active">Explainability Results</a>
                 <div class="tab-content border-base-300 bg-base-100 p-4">
-                    <h3 class="card-title text-xs my-2">Global Feature Importance</h3>
-                    <p class="label text-xs mb-4">For Model: <span class="font-medium">XGBoost Tree Ensemble</span></p>
-                    <div class="grid  grid-cols-2 xl:grid-cols-4 items-center gap-2">
-                        <p class="label text-xs">Temp_C: </p>
-                        <p class="label text-xs font-bold justify-self-center">0.45</p>
-                        <progress class="progress col-span-2" value="45" max="100"></progress>
-                        <p class="label text-xs">Rainfall_mm: </p>
-                        <p class="label text-xs font-bold justify-self-center">0.27</p>
-                        <progress class="progress col-span-2" value="27" max="100"></progress>
-                        <p class="label text-xs">Is_Weekend: </p>
-                        <p class="label text-xs font-bold justify-self-center">0.24</p>
-                        <progress class="progress col-span-2" value="24" max="100"></progress>
-                        <p class="label text-xs">Is_Holiday: </p>
-                        <p class="label text-xs font-bold justify-self-center">0.12</p>
-                        <progress class="progress col-span-2" value="12" max="100"></progress>
-                        <p class="label text-xs">Flavour: </p>
-                        <p class="label text-xs font-bold justify-self-center">0.08</p>
-                        <progress class="progress col-span-2" value="8" max="100"></progress>
-                    </div>
-                    <div class="divider"></div>
                     <h3 class="card-title text-xs my-2">What-if Analysis</h3>
                     <div class="grid grid-cols-1 xl:grid-cols-3 gap-4 items-center">
                         <div class="col-span-2 grid grid cols-1 xl:grid-cols-2 gap-2">
                             <fieldset class="fieldset">
-                                <legend class="label">Temperature_C</legend>
+                                <legend class="label">Temp_C</legend>
                                 <input type="number" class="input input-xs text-black cursor-text" value="27" disabled/>
                             </fieldset>
                             <fieldset class="fieldset">
@@ -144,6 +124,27 @@
                             </div>
                         </div>
                     </div>
+                    <div class="divider"></div>
+                    <h3 class="card-title text-xs my-2">Global Feature Importance</h3>
+                    <p class="label text-xs mb-4">For Model: <span class="font-medium">XGBoost Tree Ensemble</span></p>
+                    <div class="grid  grid-cols-2 xl:grid-cols-4 items-center gap-2">
+                        <p class="label text-xs">Temp_C: </p>
+                        <p class="label text-xs font-bold justify-self-center">0.45</p>
+                        <progress class="progress col-span-2" value="45" max="100"></progress>
+                        <p class="label text-xs">Rainfall_mm: </p>
+                        <p class="label text-xs font-bold justify-self-center">0.27</p>
+                        <progress class="progress col-span-2" value="27" max="100"></progress>
+                        <p class="label text-xs">Is_Weekend: </p>
+                        <p class="label text-xs font-bold justify-self-center">0.24</p>
+                        <progress class="progress col-span-2" value="24" max="100"></progress>
+                        <p class="label text-xs">Is_Holiday: </p>
+                        <p class="label text-xs font-bold justify-self-center">0.12</p>
+                        <progress class="progress col-span-2" value="12" max="100"></progress>
+                        <p class="label text-xs">Flavour: </p>
+                        <p class="label text-xs font-bold justify-self-center">0.08</p>
+                        <progress class="progress col-span-2" value="8" max="100"></progress>
+                    </div>
+     
                 </div>
             </div>
         </div>
