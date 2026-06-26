@@ -4,64 +4,96 @@
     <div class="flex items-center gap-1"><span class="font-medium">Status:</span> Implemented <span class="material-symbols-outlined text-success">check_circle</span></div>
 </div>
 <div class="divider"></div>
-<!-- DATA SOURCE -->
-<section class="card bg-base-100 border border-base-300 shadow mb-6">
-    <div class="card-body">
-        <h2 class="card-title text-sm">Data Source</h2>
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <fieldset class="fieldset">
-                <legend class="label">Select File</legend>
-                <div class="join">
-                    <input type="text" class="input join-item text-black border-base-300 cursor-text w-full" value="Ice_Cream_Sales.csv" disabled />
-                    <button class="btn join-item border-base-300" disabled>Browse</button>    
-                </div>
-                <p class="label">1 File was selected</p>
-            </fieldset>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+    <section class="card bg-base-100 border border-base-300 shadow">
+        <div class="card-body">
+            <h2 class="card-title text-sm">Data Source</h2>
+            <div class="grid grid-cols-1 xl:grid-cols-2 gap-2">
+                <fieldset class="fieldset">
+                    <legend class="label">Select File</legend>
+                    <div class="join">
+                        <input type="text" class="input input-sm join-item text-black border-base-300 cursor-text w-full" value="Ice_Cream_Sales.csv" disabled />
+                        <button class="btn btn-sm join-item border-base-300" disabled>Browse</button>    
+                    </div>
+                </fieldset>
+                <fieldset class="fieldset">
+                    <legend class="label">File Type</legend>
+                      <select class="select select-sm">
+                        <option disabled>Microsoft Excel (xls/xlsx)</option>
+                        <option disabled selected>Comma-separated values (csv)</option>
+                        <option disabled>Extensible Markup Language (xml)</option>
+                        <option disabled>Other</option>
+                    </select>
+                </fieldset>
+            </div>
+            <h2 class="card-title text-sm mt-4">Import Options</h2>
+            <div class="grid grid-cols-1 xl:grid-cols-2 gap-2">
+                <fieldset class="fieldset">
+                    <legend class="label">Delimiter</legend>
+                      <select class="select select-sm">
+                        <option disabled selected>Comma (,)</option>
+                        <option disabled>Tab (\t)</option>
+                        <option disabled>Pipe (|)</option>
+                        <option disabled>Semicolon (;)</option>
+                    </select>
+                </fieldset>
+                <fieldset class="fieldset">
+                    <legend class="label">Encoding</legend>
+                      <select class="select select-sm">
+                        <option disabled selected>UTF-8</option>
+                        <option disabled>Windows-1252</option>
+                        <option disabled>ISO-8859-1</option>
+                        <option disabled>UTF-16</option>
+                    </select>
+                </fieldset>
+            </div>
+            <h2 class="card-title text-sm mt-4">Additional Information</h2>
             <fieldset class="fieldset">
                 <legend class="label">File Information</legend>
-                <div class="bg-base-200 border p-2 border-base-300 rounded h-16 text-sm">
+                <div class="bg-base-200 border p-2 border-base-300 rounded h-16 text-xs">
                     This dataset contains information about ice cream sales in the city of Graz.
                     It was collected as part of the research project "AIce cream".
                 </div>
             </fieldset>
-        </div>
-        <div class="divider my-2"></div>
-        <div class="card-actions justify-between items-center">
-            <div class="flex items-center gap-1">
-                <p class="material-symbols-outlined text-success" style="font-size: 1rem">check_circle</p><p class="text-xs font-medium">Succesfully imported!</p>
+            <div class="divider my-2"></div>
+            <div class="card-actions justify-between items-center">
+                <div class="flex items-center gap-1">
+                    <p class="material-symbols-outlined text-success" style="font-size: 1rem">check_circle</p><p class="text-xs font-medium">Succesfully imported!</p>
+                </div>
+                <button class="btn btn-sm btn-neutral">Import</button>
             </div>
-            <button class="btn btn-sm btn-neutral">Import</button>
-        </div>    
-    </div>
-</section>
-
-<!-- DATA Preview -->
- <section class="card bg-base-100 border border-base-300 shadow">
-    <div class="card-body"> 
-        <div class="flex justify-between items-center">
-            <h2 class="card-title text-sm">Data Preview</h2>
-            <div class="text-xs font-medium">Showing 10 of 3698 rows</div>
         </div>
-        <table class="table table-xs table-zebra mt-4">
-          <thead>
-            <tr class="text-xs"> <th></th> <th>Temperature_C</th> <th>Is_Weekend</th> <th>Is_Holiday</th> <th>Rainfall_mm</th> <th>Flavour</th> <th>Sales_EUR</th> </tr>
-          </thead>
-          <tbody>
-          <tr> <th>1</th> <td>32.5</td> <td>1</td> <td>0</td> <td>0.0</td> <td>Vanilla</td> <td>825.96</td> </tr>
-          <tr> <th>2</th> <td>18.0</td> <td>0</td> <td>0</td> <td>5.2</td> <td>Chocolate</td> <td>213.74</td> </tr>
-          <tr> <th>3</th> <td>28.2</td> <td>1</td> <td>0</td> <td>0.0</td> <td>Mango</td> <td>757.37</td> </tr>
-          <tr> <th>4</th> <td>30.1</td> <td>0</td> <td>0</td> <td>0.0</td> <td>Vanilla</td> <td>641.08</td> </tr>
-          <tr> <th>5</th> <td>15.5</td> <td>0</td> <td>0</td> <td>12.4</td> <td>Mint Chip</td> <td>47.19</td> </tr>
-          <tr> <th>6</th> <td>26.0</td> <td>1</td> <td>0</td> <td>1.5</td> <td>Chocolate</td> <td>633.19</td> </tr>
-          <tr> <th>7</th> <td>34.0</td> <td>1</td> <td>1</td> <td>0.0</td> <td>Mango</td> <td>1250.95</td> </tr>
-          <tr> <th>8</th> <td>22.1</td> <td>0</td> <td>0</td> <td>0.0</td> <td>Strawberry</td> <td>418.01</td> </tr>
-          <tr> <th>9</th> <td>29.5</td> <td>0</td> <td>0</td> <td>0.5</td> <td>Vanilla</td> <td>591.37</td> </tr>
-          <tr> <th>10</th> <td>31.0</td> <td>1</td> <td>0</td> <td>0.0</td> <td>Mint Chip</td> <td>799.51</td> </tr>
-        </tbody>
-        </table>
+    </section>
+    <!-- DATA Preview -->
+    <section class="card bg-base-100 border border-base-300 shadow">
+        <div class="card-body"> 
+            <div class="flex justify-between items-center">
+                <h2 class="card-title text-sm">Data Preview</h2>
+                <div class="text-xs font-medium">Showing 10 of 3698 rows</div>
+            </div>
+            <table class="table table-xs table-zebra mt-4">
+            <thead>
+                <tr class="text-xs"> <th></th> <th>Temp_C</th> <th>Is_Weekend</th> <th>Is_Holiday</th> <th>Rainfall_mm</th> <th>Flavour</th> <th>Sales_EUR</th> </tr>
+            </thead>
+            <tbody>
+            <tr> <th>1</th> <td>32.5</td> <td>1</td> <td>0</td> <td>0.0</td> <td>Vanilla</td> <td>825.96</td> </tr>
+            <tr> <th>2</th> <td>18.0</td> <td>0</td> <td>0</td> <td>5.2</td> <td>Chocolate</td> <td>213.74</td> </tr>
+            <tr> <th>3</th> <td>28.2</td> <td>1</td> <td>0</td> <td>0.0</td> <td>Mango</td> <td>757.37</td> </tr>
+            <tr> <th>4</th> <td>30.1</td> <td>0</td> <td>0</td> <td>0.0</td> <td>Vanilla</td> <td>641.08</td> </tr>
+            <tr> <th>5</th> <td>15.5</td> <td>0</td> <td>0</td> <td>12.4</td> <td>Mint Chip</td> <td>47.19</td> </tr>
+            <tr> <th>6</th> <td>26.0</td> <td>1</td> <td>0</td> <td>1.5</td> <td>Chocolate</td> <td>633.19</td> </tr>
+            <tr> <th>7</th> <td>34.0</td> <td>1</td> <td>1</td> <td>0.0</td> <td>Mango</td> <td>1250.95</td> </tr>
+            <tr> <th>8</th> <td>22.1</td> <td>0</td> <td>0</td> <td>0.0</td> <td>Strawberry</td> <td>418.01</td> </tr>
+            <tr> <th>9</th> <td>29.5</td> <td>0</td> <td>0</td> <td>0.5</td> <td>Vanilla</td> <td>591.37</td> </tr>
+            <tr> <th>10</th> <td>31.0</td> <td>1</td> <td>0</td> <td>0.0</td> <td>Mint Chip</td> <td>799.51</td> </tr>
+            </tbody>
+            </table>
 
 
-    </div>
- </section>
+        </div>
+    </section>
+</div>
+
+
 
 
