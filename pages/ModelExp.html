@@ -1,0 +1,151 @@
+<!-- HEADER -->
+<div class="flex justify-between">
+    <div class="flex items-center gap-1"><span class="material-symbols-outlined">clarify</span><h1 class="text-xl font-bold">Model Explanation</h1></div>
+    <div class="flex items-center gap-1"><span class="font-medium">Status:</span> Implemented <span class="material-symbols-outlined text-success">check_circle</span></div>
+</div>
+<div class="divider"></div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+    <!-- SETTINGS -->
+    <section class="card bg-base-100 border border-base-300 shadow">
+        <div class="card-body">
+            <h2 class="card-title text-sm">Scope and Methodology</h2>
+            <div class="grid grid-cols-1 xl:grid-cols-2 gap-2">
+                <fieldset class="fieldset">
+                    <legend class="label">Explanation Scope</legend>
+                    <select class="select select-sm">
+                        <option disabled >Local</option>
+                        <option disabled selected>Global</option>
+                    </select>
+                </fieldset>
+                <fieldset class="fieldset">
+                    <legend class="label">Methodology</legend>
+                    <select class="select select-sm">
+                        <option disabled selected>Permutation Importance</option>
+                        <option disabled>Global SHAP</option>
+                    </select>
+                </fieldset>
+            </div>
+            <h2 class="card-title text-sm mt-4">Model and Metrics</h2>
+            <div class="grid grid-cols-1 xl:grid-cols-2 gap-2">
+                <fieldset class="fieldset">
+                    <legend class="label">Model to Explain</legend>
+                    <select class="select select-sm">
+                        <option disabled selected>Best Model</option>
+                        <div class="divider my-0"></div>
+                        <option disabled>Linear Regression</option>
+                        <option disabled>Random Forest</option>
+                        <option disabled>Gradient Boosted Trees</option>
+                        <option disabled>XGBoost Tree Ensemble</option>
+                    </select>
+                </fieldset>
+                <fieldset class="fieldset">
+                    <legend class="label">Evaluation Metric</legend>
+                    <select class="select select-sm">
+                        <option disabled>R^2</option>
+                        <option disabled selected>Adjusted R^2</option>
+                        <option disabled>MAE</option>
+                        <option disabled>RMSE</option>
+                        <option disabled>MAPE</option>
+                    </select>
+                </fieldset>
+            </div>
+            <h2 class="card-title text-sm mt-4">Dataset and Shuffling</h2>
+            <div class="grid grid-cols-1 xl:grid-cols-2 gap-2">
+                <fieldset class="fieldset">
+                    <legend class="label">Computation on</legend>
+                    <select class="select select-sm">
+                        <option disabled selected>Test Set</option>
+                        <option disabled>Training Set</option>
+                    </select>
+                </fieldset>
+                <fieldset class="fieldset">
+                    <legend class="label">Number of Shuffles/Feature</legend>
+                    <input type="number" class="input input-sm text-black cursor-text" value="10" disabled/>
+                </fieldset>
+            </div>
+            <div class="divider my-2"></div>
+            <div class="card-actions justify-between items-center">
+                <div class="flex items-center gap-1">
+                    <p class="material-symbols-outlined text-success" style="font-size: 1rem">check_circle</p><p class="text-xs font-medium">Succesfully trained!</p>
+                </div>
+                <button class="btn btn-sm btn-neutral">Train</button>
+            </div>
+        </div>
+    </section>
+    <!-- STATISTICS -->
+    <section class="card bg-base-100 border border-base-300 shadow">
+        <div class="card-body">
+            <h2 class="card-title text-sm">Model Explanation</h2>
+            <div role="tablist" class="tabs tabs-sm tabs-lift">
+                <a role="tab" class="tab tab-disabled">Calculation Progress</a>
+                <a role="tab" class="tab tab-active">Explainability Results</a>
+                <div class="tab-content border-base-300 bg-base-100 p-4">
+                    <h3 class="card-title text-xs my-2">Global Feature Importance</h3>
+                    <p class="label text-xs mb-4">For Model: <span class="font-medium">XGBoost Tree Ensemble</span></p>
+                    <div class="grid  grid-cols-2 xl:grid-cols-4 items-center gap-2">
+                        <p class="label text-xs">Temp_C: </p>
+                        <p class="label text-xs font-bold justify-self-center">0.45</p>
+                        <progress class="progress col-span-2" value="45" max="100"></progress>
+                        <p class="label text-xs">Rainfall_mm: </p>
+                        <p class="label text-xs font-bold justify-self-center">0.27</p>
+                        <progress class="progress col-span-2" value="27" max="100"></progress>
+                        <p class="label text-xs">Is_Weekend: </p>
+                        <p class="label text-xs font-bold justify-self-center">0.24</p>
+                        <progress class="progress col-span-2" value="24" max="100"></progress>
+                        <p class="label text-xs">Is_Holiday: </p>
+                        <p class="label text-xs font-bold justify-self-center">0.12</p>
+                        <progress class="progress col-span-2" value="12" max="100"></progress>
+                        <p class="label text-xs">Flavour: </p>
+                        <p class="label text-xs font-bold justify-self-center">0.08</p>
+                        <progress class="progress col-span-2" value="8" max="100"></progress>
+                    </div>
+                    <div class="divider"></div>
+                    <h3 class="card-title text-xs my-2">What-if Analysis</h3>
+                    <div class="grid grid-cols-1 xl:grid-cols-3 gap-4 items-center">
+                        <div class="col-span-2 grid grid cols-1 xl:grid-cols-2 gap-2">
+                            <fieldset class="fieldset">
+                                <legend class="label">Temperature_C</legend>
+                                <input type="number" class="input input-xs text-black cursor-text" value="27" disabled/>
+                            </fieldset>
+                            <fieldset class="fieldset">
+                                <legend class="label">Rainfall_mm</legend>
+                                <input type="number" class="input input-xs text-black cursor-text" value="2" disabled/>
+                            </fieldset>
+                            <fieldset class="fieldset">
+                                <legend class="label text-xs">Is_Weekend</legend>
+                                <select class="select select-xs">
+                                    <option disabled>Yes</option>
+                                    <option disabled selected>No</option>
+                                </select>
+                            </fieldset>
+                            <fieldset class="fieldset">
+                                <legend class="label text-xs">Is_Holiday</legend>
+                                <select class="select select-xs">
+                                    <option disabled selected>Yes</option>
+                                    <option disabled>No</option>
+                                </select>
+                            </fieldset>
+                            <fieldset class="fieldset">
+                                <legend class="label text-xs">Flavour</legend>
+                                <select class="select select-xs">
+                                    <option disabled>Vanilla</option>
+                                    <option disabled>Chocolate</option>
+                                    <option disabled selected>Mango</option>
+                                    <option disabled>Mint Chip</option>
+                                    <option disabled>Strawberry</option>
+                                </select>
+                            </fieldset>
+                        </div>
+                        <div class="stats shadow">
+                            <div class="stat">
+                                <div class="stat-title">Prediction</div>
+                                <div class="stat-value text-xl">784,36</div>
+                                <div class="stat-desc">Sales_EUR</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
