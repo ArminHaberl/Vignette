@@ -1,6 +1,58 @@
 <!-- HEADER -->
 <div class="flex justify-between">
     <div class="flex items-center gap-1"><span class="material-symbols-outlined">edit_document</span><h1 class="text-xl font-bold">Reporting</h1></div>
-    <div class="flex items-center gap-1"><span class="font-medium">Status:</span> Implemented <span class="material-symbols-outlined text-warning">build_circle</span></div>
+    <div class="flex items-center gap-1"><span class="font-medium">Status:</span> In Progress <span class="material-symbols-outlined text-warning">build_circle</span></div>
 </div>
 <div class="divider"></div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+    <!-- SETTINGS -->
+    <section class="card bg-base-100 border border-base-300 shadow">
+        <div class="card-body">
+            <h2 class="card-title text-sm">Report Settings</h2>
+            <fieldset class="fieldset">
+                <legend class="label">Report Template</legend>
+                <select class="select select-sm">
+                    <option disabled>AAAI Conference</option>
+                    <option disabled>AI Magazine</option>
+                    <option disabled>Journal of AI Research (JAIR)</option>
+                    <option disabled>NeurIPS Conference</option>
+                    <option disabled selected>Experimental AI Journal</option>
+                    <div class="divider my-0"></div>
+                    <option disabled>Add Custom Template</option>
+                </select>
+            </fieldset>
+            <fieldset class="fieldset">
+                <legend class="label">Report Requirements</legend>
+                <div class="bg-base-200 border p-2 border-base-300 rounded h-fit text-xs p-4">
+                    <h3 class="font-medium">Experimental AI Journal - Reporting Guideline</h3>
+                    <p class="text-justify mt-2">
+                        The Experimental AI Journal is commited to ensure the <span class="font-medium">transparency</span> and <span class="font-medium">reproducibility</span> of submitted AI research.
+                        Therefore, any contributions to the Journal need to ensure that all datasets, configurations, and results are adequately documented.
+                        Researchers aiming to publish in the Experimental AI Journal are asked to document their AI workflows as follows.
+                    </p>
+                    <h3 class="font-medium mt-4">Specify the following information:</h3>
+                    <ul class="list-disc ml-8 grid grid-cols-1 gap-2 mt-2">
+                        <li> Dataset including its source, size and features</li>
+                        <li> All data preparation steps performed</li>
+                        <li> Data partitioning including size of test and train sets</li>
+                        <li> Applied ML algorithms including their settings and hyperparameters</li>
+                        <li> Performance of created ML models</li>
+                        <li> Interpretation/explanation of predictions</li>
+                </div>
+            </fieldset>
+            <div class="divider mt-0 mb-2"></div>
+            <div class="card-actions justify-between items-center">
+                <div class="flex items-center gap-1">
+                    <p class="material-symbols-outlined text-success" style="font-size: 1rem">check_circle</p><p class="text-xs font-medium">Succesfully generated!</p>
+                </div>
+                <button class="btn btn-sm btn-neutral">Generate</button>
+            </div>
+        </div>
+    </section>
+    <!-- RESULTS -->
+    <section class="card bg-base-100 border border-base-300 shadow">
+        <div class="card-body">
+            <h2 class="card-title text-sm">Report</h2>
+        </div>
+    </section>
+</div>
