@@ -33,19 +33,34 @@
                 <ul class="menu bg-base-200 min-h-full w-70 p-4 gap-2 font-medium" hx-target="#content">
                     <li class="menu-title">Workflow</li>
                     <li class="shadow-sm" :class="page == 'DataImport' ? 'bg-base-300' : 'bg-base-100' " @click="page = 'DataImport'">
-                        <a hx-get="pages/DataImport.html"><span class="material-symbols-outlined">upload</span>Data Import</a>
+                        <a class="flex justify-between" hx-get="pages/DataImport.html">
+                            <div class="flex items-center gap-2"><span class="material-symbols-outlined">upload </span> Data Import</div>
+                            <span class="material-symbols-outlined text-success" style="font-size: 1rem">check_circle</span>
+                        </a>
                     </li>
                     <li class="shadow-sm" :class="page == 'DataPrep' ? 'bg-base-300' : 'bg-base-100' " @click="page = 'DataPrep'">
-                        <a hx-get="pages/DataPrep.html"><span class="material-symbols-outlined">data_check</span>Data Preparation</a>
+                        <a class="flex justify-between" hx-get="pages/DataPrep.html">
+                            <div class="flex items-center gap-2"><span class="material-symbols-outlined">data_check</span>Data Preparation</div>
+                            <span class="material-symbols-outlined text-success" style="font-size: 1rem">check_circle</span>
+                        </a>
                     </li>
                     <li class="shadow-sm" :class="page == 'ModelTrain' ? 'bg-base-300' : 'bg-base-100' " @click="page = 'ModelTrain'">
-                        <a hx-get="pages/ModelTrain.html"><span class="material-symbols-outlined">model_training</span>Model Training</a>
+                        <a class="flex justify-between" hx-get="pages/ModelTrain.html">
+                            <div class="flex items-center gap-2"><span class="material-symbols-outlined">model_training</span>Model Training</div>
+                            <span class="material-symbols-outlined text-success" style="font-size: 1rem">check_circle</span>
+                        </a>
                     </li>
                     <li class="shadow-sm" :class="page == 'ModelExp' ? 'bg-base-300' : 'bg-base-100' " @click="page = 'ModelExp'">
-                        <a hx-get="pages/ModelExp.html"><span class="material-symbols-outlined">clarify</span>Model Explanation</a>
+                        <a class="flex justify-between" hx-get="pages/ModelExp.html">
+                            <div class="flex items-center gap-2"><span class="material-symbols-outlined">clarify</span>Model Explanation</div>
+                            <span class="material-symbols-outlined text-success" style="font-size: 1rem">check_circle</span>
+                        </a>
                     </li>
                     <li class="shadow-sm" :class="page == 'Reporting' ? 'bg-base-300' : 'bg-base-100' " @click="page = 'Reporting'">
-                        <a hx-get="pages/Reporting.html"><span class="material-symbols-outlined">edit_document</span>Reporting</a>
+                        <a class="flex justify-between" hx-get="pages/Reporting.html">
+                            <div class="flex items-center gap-2"><span class="material-symbols-outlined">edit_document</span>Reporting</div>
+                            <span class="material-symbols-outlined text-warning" style="font-size: 1rem">build_circle</span>
+                        </a>
                     </li>
                 </ul>
             </div>
