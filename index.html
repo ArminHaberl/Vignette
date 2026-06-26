@@ -8,7 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.10/dist/htmx.min.js" integrity="sha384-H5SrcfygHmAuTDZphMHqBJLc3FhssKjG7w/CeCpFReSfwBWDTKpkzPP8c+cLsK+V" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/alpinejs" defer></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&icon_names=area_chart,build_circle,check_circle,data_check,edit_document,info,model_training,upload" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&icon_names=area_chart,build_circle,check_circle,clarify,data_check,edit_document,info,model_training,upload" />
 </head>
 <body>
     <div class="flex flex-col h-svh justify-between">
@@ -40,6 +40,9 @@
                     </li>
                     <li class="shadow-sm" :class="page == 'ModelTrain' ? 'bg-base-300' : 'bg-base-100' " @click="page = 'ModelTrain'">
                         <a hx-get="pages/ModelTrain.html"><span class="material-symbols-outlined">model_training</span>Model Training</a>
+                    </li>
+                    <li class="shadow-sm" :class="page == 'ModelExp' ? 'bg-base-300' : 'bg-base-100' " @click="page = 'ModelExp'">
+                        <a hx-get="pages/ModelExp.html"><span class="material-symbols-outlined">clarify</span>Model Explanation</a>
                     </li>
                     <li class="shadow-sm" :class="page == 'Reporting' ? 'bg-base-300' : 'bg-base-100' " @click="page = 'Reporting'">
                         <a hx-get="pages/Reporting.html"><span class="material-symbols-outlined">edit_document</span>Reporting</a>
