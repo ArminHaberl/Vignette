@@ -23,7 +23,7 @@
             </fieldset>
             <fieldset class="fieldset">
                 <legend class="label">Report Requirements</legend>
-                <div class="bg-base-200 border p-2 border-base-300 rounded h-fit text-xs p-4">
+                <div class="border p-2 border-base-300 rounded h-fit text-xs p-4">
                     <h3 class="font-medium">Experimental AI Journal - Reporting Guideline</h3>
                     <p class="text-justify mt-2">
                         The Experimental AI Journal is commited to ensure the <span class="font-medium">transparency</span> and <span class="font-medium">reproducibility</span> of submitted AI research.
@@ -34,10 +34,9 @@
                     <ul class="list-disc ml-8 grid grid-cols-1 gap-2 mt-2">
                         <li> Dataset including its source, size and features</li>
                         <li> All data preparation steps performed</li>
-                        <li> Data partitioning including size of test and train sets</li>
+                        <li> Data partitioning method and size of test and train sets</li>
                         <li> Applied ML algorithms including their settings and hyperparameters</li>
-                        <li> Performance of created ML models</li>
-                        <li> Interpretation/explanation of predictions</li>
+                        <li> Performance comparison of created ML models or baseline models</li>
                 </div>
             </fieldset>
             <div class="divider mt-0 mb-2"></div>
@@ -53,6 +52,65 @@
     <section class="card bg-base-100 border border-base-300 shadow">
         <div class="card-body">
             <h2 class="card-title text-sm">Report</h2>
+            <div class="bg-base-200 border p-2 border-base-300 rounded h-fit text-xs p-4 text-justify">
+                <h3 class="text-sm font-medium underline mb-2">Reproducibility Report for the AIce Cream Project</h3>
+                <p>This report contains the implementation details for the AutoML models created as part of the AIce Cream research project. It is structured to fulfill the reporting requriments outlined by the guidelines of the Experimental AI Journal.</p>
+                <div class="divider my-1"></div>
+                <div class="flex justify-between items-center mb-2">
+                    <h4 class="font-medium ">Dataset</h4>
+                    <label class="label text-xs"> <input type="checkbox" class="checkbox checkbox-xs" x-model="check_1"/>Is this information correct?</label>
+                </div>
+                <table class="table table-xs bg-base-100">
+                    <tbody>
+                        <tr> <td> Data file </td> <td>Ice_Cream_Sales.csv </td> </tr>
+                        <tr> <td> Source </td> <td> Collected as part of AIce Cream project</td> </tr>
+                        <tr> <td> Size </td> <td> 3698 rows</td> </tr>
+                        <tr> <td> Features </td> <td>Temp_C, Is_Weekend, Is_Holiday, Rainfall_mm, Flavour, Sales_EUR </td> </tr>
+                    </tbody>
+                </table>
+                <div class="divider my-1"></div>
+                <div class="flex justify-between items-center mb-2">
+                    <h4 class="font-medium ">Data Preparation</h4>
+                    <label class="label text-xs"> <input type="checkbox" class="checkbox checkbox-xs" x-model="check_2"/>Is this information correct?</label>
+                </div>
+                <table class="table table-xs bg-base-100">
+                    <tbody>
+                        <tr> <td> Missing Value Handling </td> <td>Replaced missing numerical values with mean and missing categorical values with most frequent value. </td> </tr>
+                        <tr> <td> Outlier Handling </td> <td> Detected outliers using Z-scores and dropped rows containg any outliers.</td> </tr>
+                        <tr> <td> Feature Engineering </td> <td> Dropped zero-variance features and features with correlation coefficient higher than 0.95 </td> </tr>
+                    </tbody>
+                </table>
+                <div class="divider my-1"></div>
+                <div class="flex justify-between items-center mb-2">
+                    <h4 class="font-medium ">Model Training</h4>
+                    <label class="label text-xs"> <input type="checkbox" class="checkbox checkbox-xs" x-model="check_2"/>Is this information correct?</label>
+                </div>
+                <table class="table table-xs bg-base-100">
+                    <tbody>
+                        <tr> <td> Training Objective </td> <td> The objective was to predict the features "Sales_EUR" using the optimization metric "Adjusted R^2" </td> </tr>
+                        <tr> <td> Trained Models </td> <td> Linear Regression, Random Forest, Gradient Boosted Trees, XGBoost Tree Ensemble</td> </tr>
+                        <tr> <td> Data Partitioning </td> <td> Data was sampled randomly with a 30% test set ratio and using the random seed "481357" </td> </tr>
+                    </tbody>
+                </table>
+                <div class="divider my-1"></div>
+                <div class="flex justify-between items-center mb-2">
+                    <h4 class="font-medium ">Model Performance</h4>
+                    <label class="label text-xs"> <input type="checkbox" class="checkbox checkbox-xs" x-model="check_2"/>Is this information correct?</label>
+                </div>
+                <table class="table table-xs bg-base-100">
+                    <thead class="bg-base-200 text-xs">
+                        <th>Model</th> <th>Adjusted R^2</th>
+                    </thead>
+                    <tbody>
+                        <tr> <td> Linear Regression </td> <td> 0.886 </td> </tr>
+                        <tr> <td> Random Forest </td> <td> 0.737 </td> </tr>
+                        <tr> <td> Gradient Boosted Trees </td> <td> 0.873 </td> </tr>
+                        <tr> <td> XGBoost Tree Ensemble </td> <td> 0.945 </td> </tr>
+                    </tbody>
+                </table>
+            </div>
+            </div>
+
         </div>
     </section>
 </div>
