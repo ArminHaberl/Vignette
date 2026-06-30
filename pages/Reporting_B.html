@@ -1,0 +1,101 @@
+<!-- HEADER -->
+<div class="flex justify-between">
+    <div class="flex items-center gap-1"><span class="material-symbols-outlined">edit_document</span><h1 class="text-xl font-bold">Reporting</h1></div>
+    <div class="flex items-center gap-1"><span class="font-medium">Status:</span> In Progress <span class="material-symbols-outlined text-warning">build_circle</span></div>
+</div>
+<div class="divider"></div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+    <!-- SETTINGS -->
+    <section class="card bg-base-100 border border-base-300 shadow">
+        <div class="card-body">
+            <h2 class="card-title text-sm">Report Settings</h2>
+            <fieldset class="fieldset">
+                <legend class="label">Report Template</legend>
+                <select class="select select-sm">
+                    <option disabled>Add Custom Template</option>
+                    <div class="divider my-0"></div>
+                    <option disabled>AAAI Conference</option>
+                    <option disabled>AI Magazine</option>
+                    <option disabled>Journal of AI Research (JAIR)</option>
+                    <option disabled>NeurIPS Conference</option>
+                    <option disabled selected>Experimental AI Journal</option>
+                </select>
+            </fieldset>
+            <fieldset class="fieldset">
+                <legend class="label">Report Requirements</legend>
+                <div class="border p-2 border-base-300 rounded h-fit text-xs p-4">
+                    <h3 class="font-medium">Experimental AI Journal - Reporting Guideline</h3>
+                    <p class="text-justify mt-2">
+                        The Experimental AI Journal is commited to ensure the <span class="font-medium">transparency</span> and <span class="font-medium">reproducibility</span> of submitted AI research.
+                        Therefore, any contributions to the Journal need to ensure that all datasets, configurations, and results are adequately documented.
+                        Researchers aiming to publish in the Experimental AI Journal are asked to document their AI workflows as follows.
+                    </p>
+                    <h3 class="font-medium mt-4">Specify the following information:</h3>
+                    <ul class="list-disc ml-8 grid grid-cols-1 gap-2 mt-2">
+                        <li> Dataset including its source, size and features</li>
+                        <li> All data preparation steps performed</li>
+                        <li> Data partitioning method and size of test and train sets</li>
+                        <li> Applied ML algorithms including their settings and hyperparameters</li>
+                        <li> Performance comparison of created ML models or baseline models</li>
+                </div>
+            </fieldset>
+        </div>
+    </section>
+    <!-- RESULTS -->
+    <section class="card bg-base-100 border border-base-300 shadow col-span-2 min-h-full">
+        <div class="card-body">
+            <div class="flex justify-between items-center mb-2">
+                <h2 class="card-title text-sm">Report</h2>
+                <button class="btn btn-xs btn-neutral">Export</button>
+
+            </div>
+            <div class="bg-base-200 border p-2 border-base-300 rounded h-fit text-xs p-4 text-justify">
+                <h3 class="text-sm font-medium underline mb-2">Reproducibility Report for the AIce Cream Project</h3>
+                <p>This report contains the implementation details for the AutoML models created as part of the AIce Cream research project. It is structured to fulfill the reporting requriments outlined by the guidelines of the Experimental AI Journal.</p>
+                <div class="divider my-1"></div>
+                <h4 class="font-medium mb-2">Dataset</h4>
+                <table class="table table-xs bg-base-100">
+                    <tbody>
+                        <tr> <td class="w-36"> File Name </td> <td> <input type="text" class="input input-xs h-6 text-xs w-full" > </td> </tr>
+                        <tr> <td> Data Source </td> <td> <input type="text" class="input input-xs h-6 text-xs w-full" > </td> </tr>
+                        <tr> <td> Size of Dataset </td> <td> <input type="text" class="input input-xs h-6 text-xs w-full" ></td> </tr>
+                        <tr> <td> Features </td> <td> <input type="text" class="input input-xs h-6 text-xs w-full" ></td> </tr>
+                    </tbody>
+                </table>
+                <div class="divider my-1"></div>
+                <h4 class="font-medium mb-2">Data Preparation</h4>
+                <table class="table table-xs bg-base-100">
+                    <tbody>
+                        <tr> <td class="w-36"> Missing Value Handling </td> <td> <input type="text" class="input input-xs h-6 text-xs w-full" ></td> </tr>
+                        <tr> <td> Outlier Handling </td> <td> <input type="text" class="input input-xs h-6 text-xs w-full" ></td> </tr>
+                        <tr> <td> Feature Engineering </td> <td> <input type="text" class="input input-xs h-6 text-xs w-full" > </td> </tr>
+                    </tbody>
+                </table>
+                <div class="divider my-1"></div>
+                <h4 class="font-medium mb-2">Model Training</h4>
+                <table class="table table-xs bg-base-100">
+                    <tbody>
+                        <tr> <td class="w-36"> Training Objective </td> <td> <input type="text" class="input input-xs h-6 text-xs w-full" > </td> </tr>
+                        <tr> <td> Trained Models </td> <td> <input type="text" class="input input-xs h-6 text-xs w-full" ></td> </tr>
+                        <tr> <td> Data Partitioning </td> <td> <input type="text" class="input input-xs h-6 text-xs w-full" ></td> </tr>
+                    </tbody>
+                </table>
+                <div class="divider my-1"></div>
+                <h4 class="font-medium mb-2">Model Performance</h4>
+                <table class="table table-xs bg-base-100">
+                    <thead class="bg-base-200 text-xs">
+                        <th>Model</th> <th>Adjusted R^2</th>
+                    </thead>
+                    <tbody>
+                        <tr> <td class="w-36"> Linear Regression </td> <td> <input type="text" class="input input-xs h-6 text-xs w-full" > </td> </tr>
+                        <tr> <td> Random Forest </td> <td> <input type="text" class="input input-xs h-6 text-xs w-full" > </td> </tr>
+                        <tr> <td> Gradient Boosted Trees </td> <td> <input type="text" class="input input-xs h-6 text-xs w-full" > </td> </tr>
+                        <tr> <td> XGBoost Tree Ensemble </td> <td> <input type="text" class="input input-xs h-6 text-xs w-full" > </td> </tr>
+                    </tbody>
+                </table>
+            </div>
+            </div>
+
+        </div>
+    </section>
+</div>

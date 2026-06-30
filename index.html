@@ -63,6 +63,12 @@
                             <span class="material-symbols-outlined text-warning" style="font-size: 1rem">build_circle</span>
                         </a>
                     </li>
+                    <li class="shadow-sm" :class="page == 'Reporting_B' ? 'bg-base-300' : 'bg-base-100' " @click="page = 'Reporting_B'">
+                        <a class="flex justify-between" hx-get="pages/Reporting_B.html">
+                            <div class="flex items-center gap-2"><span class="material-symbols-outlined">edit_document</span>Reporting_B</div>
+                            <span class="material-symbols-outlined text-warning" style="font-size: 1rem">build_circle</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
