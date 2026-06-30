@@ -4,7 +4,7 @@
     <div class="flex items-center gap-1"><span class="font-medium">Status:</span> In Progress <span class="material-symbols-outlined text-warning">build_circle</span></div>
 </div>
 <div class="divider"></div>
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
     <!-- SETTINGS -->
     <section class="card bg-base-100 border border-base-300 shadow">
         <div class="card-body">
@@ -42,70 +42,63 @@
             <div class="divider mt-0 mb-2"></div>
             <div class="card-actions justify-between items-center">
                 <div class="flex items-center gap-1">
-                    <p class="material-symbols-outlined text-success" style="font-size: 1rem">check_circle</p><p class="text-xs font-medium">Succesfully generated!</p>
+                    <p x-show="show" x-transition.delay.2200ms class="material-symbols-outlined text-success" style="font-size: 1rem">check_circle</p>
+                    <p x-show="show" x-transition.delay.2200ms class="text-xs font-medium">Succesfully generated!</p>
                 </div>
-                <button class="btn btn-sm btn-neutral">Generate</button>
+                <button class="btn btn-sm btn-neutral" @click="show = true">Generate with AI</button>
             </div>
         </div>
     </section>
     <!-- RESULTS -->
-    <section class="card bg-base-100 border border-base-300 shadow">
+    <section class="card bg-base-100 border border-base-300 shadow col-span-2 min-h-full">
         <div class="card-body">
-            <h2 class="card-title text-sm">Report</h2>
-            <div class="bg-base-200 border p-2 border-base-300 rounded h-fit text-xs p-4 text-justify">
+            <div class="flex justify-between items-center mb-2">
+                <h2 class="card-title text-sm">Report</h2>
+                <button class="btn btn-xs btn-neutral">Export</button>
+
+            </div>
+            <div class="bg-base-200 border p-2 border-base-300 rounded h-fit text-xs p-4 text-justify" x-show="show" x-transition.delay.200ms.duration.2000ms.origin.top>
                 <h3 class="text-sm font-medium underline mb-2">Reproducibility Report for the AIce Cream Project</h3>
                 <p>This report contains the implementation details for the AutoML models created as part of the AIce Cream research project. It is structured to fulfill the reporting requriments outlined by the guidelines of the Experimental AI Journal.</p>
                 <div class="divider my-1"></div>
-                <div class="flex justify-between items-center mb-2">
-                    <h4 class="font-medium ">Dataset</h4>
-                    <label class="label text-xs"> <input type="checkbox" class="checkbox checkbox-xs" x-model="check_1"/>Is this information correct?</label>
-                </div>
+                <h4 class="font-medium mb-2">Dataset</h4>
                 <table class="table table-xs bg-base-100">
                     <tbody>
-                        <tr> <td> Data file </td> <td>Ice_Cream_Sales.csv </td> </tr>
-                        <tr> <td> Source </td> <td> Collected as part of AIce Cream project</td> </tr>
-                        <tr> <td> Size </td> <td> 3698 rows</td> </tr>
-                        <tr> <td> Features </td> <td>Temp_C, Is_Weekend, Is_Holiday, Rainfall_mm, Flavour, Sales_EUR </td> </tr>
+                        <tr> <td class="w-36"> File Name </td> <td> <input type="text" class="input input-xs h-6 text-xs w-full" value="Ice_Cream_Sales.csv"> </td> </tr>
+                        <tr> <td> Data Source </td> <td> <input type="text" class="input input-xs h-6 text-xs w-full" value="Collected as part of AIce Cream project"> </td> </tr>
+                        <tr> <td> Size of Dataset </td> <td> <input type="text" class="input input-xs h-6 text-xs w-full" value="3698 rows"></td> </tr>
+                        <tr> <td> Features </td> <td> <input type="text" class="input input-xs h-6 text-xs w-full" value="Temp_C, Is_Weekend, Is_Holiday, Rainfall_mm, Flavour, Sales_EUR"></td> </tr>
                     </tbody>
                 </table>
                 <div class="divider my-1"></div>
-                <div class="flex justify-between items-center mb-2">
-                    <h4 class="font-medium ">Data Preparation</h4>
-                    <label class="label text-xs"> <input type="checkbox" class="checkbox checkbox-xs" x-model="check_2"/>Is this information correct?</label>
-                </div>
+                <h4 class="font-medium mb-2">Data Preparation</h4>
                 <table class="table table-xs bg-base-100">
                     <tbody>
-                        <tr> <td> Missing Value Handling </td> <td>Replaced missing numerical values with mean and missing categorical values with most frequent value. </td> </tr>
-                        <tr> <td> Outlier Handling </td> <td> Detected outliers using Z-scores and dropped rows containg any outliers.</td> </tr>
-                        <tr> <td> Feature Engineering </td> <td> Dropped zero-variance features and features with correlation coefficient higher than 0.95 </td> </tr>
+                        <tr> <td class="w-36"> Missing Value Handling </td> <td> <input type="text" class="input input-xs h-6 text-xs w-full" value="Replaced missing numerical values with mean and missing categorical values with most frequent value. "></td> </tr>
+                        <tr> <td> Outlier Handling </td> <td> <input type="text" class="input input-xs h-6 text-xs w-full" value="Detected outliers using Z-scores and dropped rows containg any outliers."></td> </tr>
+                        <tr> <td> Feature Engineering </td> <td> <input type="text" class="input input-xs h-6 text-xs w-full" value="Dropped zero-variance features and features with correlation coefficient higher than 0.95"> </td> </tr>
                     </tbody>
                 </table>
                 <div class="divider my-1"></div>
-                <div class="flex justify-between items-center mb-2">
-                    <h4 class="font-medium ">Model Training</h4>
-                    <label class="label text-xs"> <input type="checkbox" class="checkbox checkbox-xs" x-model="check_2"/>Is this information correct?</label>
-                </div>
+                <h4 class="font-medium mb-2">Model Training</h4>
                 <table class="table table-xs bg-base-100">
                     <tbody>
-                        <tr> <td> Training Objective </td> <td> The objective was to predict the features "Sales_EUR" using the optimization metric "Adjusted R^2" </td> </tr>
-                        <tr> <td> Trained Models </td> <td> Linear Regression, Random Forest, Gradient Boosted Trees, XGBoost Tree Ensemble</td> </tr>
-                        <tr> <td> Data Partitioning </td> <td> Data was sampled randomly with a 30% test set ratio and using the random seed "481357" </td> </tr>
+                        <tr> <td class="w-36"> Training Objective </td> <td> <input type="text" class="input input-xs h-6 text-xs w-full" value="The objective was to predict the features Sales_EUR using the optimization metric Adjusted R^2"> </td> </tr>
+                        <tr> <td> Trained Models </td> <td> <input type="text" class="input input-xs h-6 text-xs w-full" value="Linear Regression, Random Forest, Gradient Boosted Trees, XGBoost Tree Ensemble"></td> </tr>
+                        <tr> <td> Data Partitioning </td> <td> <input type="text" class="input input-xs h-6 text-xs w-full" value="Data was sampled randomly with a 30% test set ratio and using the random seed 481357"></td> </tr>
                     </tbody>
                 </table>
                 <div class="divider my-1"></div>
-                <div class="flex justify-between items-center mb-2">
-                    <h4 class="font-medium ">Model Performance</h4>
-                    <label class="label text-xs"> <input type="checkbox" class="checkbox checkbox-xs" x-model="check_2"/>Is this information correct?</label>
-                </div>
+                <h4 class="font-medium mb-2">Model Performance</h4>
                 <table class="table table-xs bg-base-100">
                     <thead class="bg-base-200 text-xs">
                         <th>Model</th> <th>Adjusted R^2</th>
                     </thead>
                     <tbody>
-                        <tr> <td> Linear Regression </td> <td> 0.886 </td> </tr>
-                        <tr> <td> Random Forest </td> <td> 0.737 </td> </tr>
-                        <tr> <td> Gradient Boosted Trees </td> <td> 0.873 </td> </tr>
-                        <tr> <td> XGBoost Tree Ensemble </td> <td> 0.945 </td> </tr>
+                        <tr> <td class="w-36"> Linear Regression </td> <td> <input type="text" class="input input-xs h-6 text-xs w-full" value="0.886"> </td> </tr>
+                        <tr> <td> Random Forest </td> <td> <input type="text" class="input input-xs h-6 text-xs w-full" value="0.737 "> </td> </tr>
+                        <tr> <td> Gradient Boosted Trees </td> <td> <input type="text" class="input input-xs h-6 text-xs w-full" value="0.873"> </td> </tr>
+                        <tr> <td> XGBoost Tree Ensemble </td> <td> <input type="text" class="input input-xs h-6 text-xs w-full" value="0.945"> </td> </tr>
                     </tbody>
                 </table>
             </div>
