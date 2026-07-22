@@ -55,55 +55,115 @@
             <div class="flex justify-between items-center mb-2">
                 <h2 class="card-title text-sm">Report</h2>
                 <button class="btn btn-xs btn-neutral">Export</button>
-
             </div>
             <div class="bg-base-200 border p-2 border-base-300 rounded h-fit text-xs p-4 text-justify" x-show="show" x-transition.delay.200ms.duration.2000ms.origin.top>
                 <h3 class="text-sm font-medium underline mb-2">Reproducibility Report for the AIce Cream Project</h3>
                 <p>This report contains the implementation details for the AutoML models created as part of the AIce Cream research project. It is structured to fulfill the reporting requriments outlined by the guidelines of the Experimental AI Journal.</p>
-                <div class="divider my-1"></div>
-                <h4 class="font-medium mb-2">Dataset</h4>
-                <table class="table table-xs bg-base-100">
-                    <tbody>
-                        <tr> <td class="w-36"> File Name </td> <td> <input type="text" class="input input-xs h-6 text-xs w-full" value="Ice_Cream_Sales.csv"> </td> </tr>
-                        <tr> <td> Data Source </td> <td> <input type="text" class="input input-xs h-6 text-xs w-full" value="Collected as part of AIce Cream project"> </td> </tr>
-                        <tr> <td> Size of Dataset </td> <td> <input type="text" class="input input-xs h-6 text-xs w-full" value="3698 rows"></td> </tr>
-                        <tr> <td> Features </td> <td> <input type="text" class="input input-xs h-6 text-xs w-full" value="Temp_C, Is_Weekend, Is_Holiday, Rainfall_mm, Flavour, Sales_EUR"></td> </tr>
-                    </tbody>
-                </table>
-                <div class="divider my-1"></div>
-                <h4 class="font-medium mb-2">Data Preparation</h4>
-                <table class="table table-xs bg-base-100">
-                    <tbody>
-                        <tr> <td class="w-36"> Missing Value Handling </td> <td> <input type="text" class="input input-xs h-6 text-xs w-full" value="Replaced missing numerical values with mean and missing categorical values with most frequent value. "></td> </tr>
-                        <tr> <td> Outlier Handling </td> <td> <input type="text" class="input input-xs h-6 text-xs w-full" value="Detected outliers using Z-scores and dropped rows containg any outliers."></td> </tr>
-                        <tr> <td> Feature Engineering </td> <td> <input type="text" class="input input-xs h-6 text-xs w-full" value="Dropped zero-variance features and features with correlation coefficient higher than 0.95"> </td> </tr>
-                    </tbody>
-                </table>
-                <div class="divider my-1"></div>
-                <h4 class="font-medium mb-2">Model Training</h4>
-                <table class="table table-xs bg-base-100">
-                    <tbody>
-                        <tr> <td class="w-36"> Training Objective </td> <td> <input type="text" class="input input-xs h-6 text-xs w-full" value="The objective was to predict the features Sales_EUR using the optimization metric Adjusted R^2"> </td> </tr>
-                        <tr> <td> Trained Models </td> <td> <input type="text" class="input input-xs h-6 text-xs w-full" value="Linear Regression, Random Forest, Gradient Boosted Trees, XGBoost Tree Ensemble"></td> </tr>
-                        <tr> <td> Data Partitioning </td> <td> <input type="text" class="input input-xs h-6 text-xs w-full" value="Data was sampled randomly with a 30% test set ratio and using the random seed 481357"></td> </tr>
-                    </tbody>
-                </table>
-                <div class="divider my-1"></div>
-                <h4 class="font-medium mb-2">Model Performance</h4>
-                <table class="table table-xs bg-base-100">
-                    <thead class="bg-base-200 text-xs">
-                        <th>Model</th> <th>Adjusted R^2</th>
-                    </thead>
-                    <tbody>
-                        <tr> <td class="w-36"> Linear Regression </td> <td> <input type="text" class="input input-xs h-6 text-xs w-full" value="0.886"> </td> </tr>
-                        <tr> <td> Random Forest </td> <td> <input type="text" class="input input-xs h-6 text-xs w-full" value="0.737 "> </td> </tr>
-                        <tr> <td> Gradient Boosted Trees </td> <td> <input type="text" class="input input-xs h-6 text-xs w-full" value="0.873"> </td> </tr>
-                        <tr> <td> XGBoost Tree Ensemble </td> <td> <input type="text" class="input input-xs h-6 text-xs w-full" value="0.945"> </td> </tr>
-                    </tbody>
-                </table>
+                <div class="divider my-2"></div>
+                <div class="tabs tabs-sm tabs-lift">
+                    <input type="radio" name="report_tabs" id="tab_data_import" class="tab" aria-label="Data Import" checked="checked" />
+                    <div class="tab-content border-base-300 bg-base-200 p-4">
+                        <h4 class="font-medium mb-2">Import Information</h4>
+                        <table class="table table-xs bg-base-100">
+                            <tbody>
+                                <tr> <td class="w-36"> File Name </td> <td> <input type="text" class="input input-xs h-6 text-xs w-full" value="Ice_Cream_Sales.csv"> </td> </tr>
+                                <tr> <td> Data Source </td> <td> <input type="text" class="input input-xs h-6 text-xs w-full" value="Collected as part of AIce Cream project"> </td> </tr>
+                                <tr> <td> Size of Dataset </td> <td> <input type="text" class="input input-xs h-6 text-xs w-full" value="3698 rows"></td> </tr>
+                                <tr> <td> Features </td> <td> <input type="text" class="input input-xs h-6 text-xs w-full" value="Temp_C, Is_Weekend, Is_Holiday, Rainfall_mm, Flavour, Sales_EUR"></td> </tr>
+                                <tr> <td> File Type </td> <td> <select class="select select-xs h-6 text-xs w-full"><option>Microsoft Excel (xls/xlsx)</option><option selected>Comma-separated values (csv)</option><option>Extensible Markup Language (xml)</option><option>Other</option></select> </td> </tr>
+                                <tr> <td> Delimiter </td> <td> <select class="select select-xs h-6 text-xs w-full"><option selected>Comma (,)</option><option>Tab (\t)</option><option>Pipe (|)</option><option>Semicolon (;)</option></select> </td> </tr>
+                                <tr> <td> Encoding </td> <td> <select class="select select-xs h-6 text-xs w-full"><option selected>UTF-8</option><option>Windows-1252</option><option>ISO-8859-1</option><option>UTF-16</option></select> </td> </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <input type="radio" name="report_tabs" id="tab_data_prep" class="tab" aria-label="Data Preparation" />
+                    <div class="tab-content border-base-300 bg-base-200 p-4">
+                        <h4 class="font-medium mb-2">Missing Value Handling</h4>
+                        <table class="table table-xs bg-base-100">
+                            <tbody>
+                                <tr> <td class="w-36"> Numerical Values </td> <td> <select class="select select-xs h-6 text-xs w-full"><option>Drop Rows</option><option selected>Replace with Mean</option><option>Replace with Median</option><option>Replace based on Regression</option></select> </td> </tr>
+                                <tr> <td> Categorical Values </td> <td> <select class="select select-xs h-6 text-xs w-full"><option>Drop Rows</option><option selected>Replace with Most Frequent Value</option><option>Replace with MISSING</option></select> </td> </tr>
+                            </tbody>
+                        </table>
+                        <h4 class="font-medium mt-4 mb-2">Outlier Handling</h4>
+                        <table class="table table-xs bg-base-100">
+                            <tbody>
+                                <tr> <td class="w-36"> Detection Method </td> <td> <select class="select select-xs h-6 text-xs w-full"><option>No Detection</option><option selected>Detect based on Z-Scores</option><option>Detect based on Interquartile Range</option></select> </td> </tr>
+                                <tr> <td> Handling Action </td> <td> <select class="select select-xs h-6 text-xs w-full"><option>No Action</option><option selected>Drop Rows</option><option>Truncate Values</option></select> </td> </tr>
+                            </tbody>
+                        </table>
+                        <h4 class="font-medium mt-4 mb-2">Feature Engineering</h4>
+                        <table class="table table-xs bg-base-100">
+                            <tbody>
+                                <tr> <td class="w-36"> Correlation Threshold </td> <td> <select class="select select-xs h-6 text-xs w-full"><option>No Threshold</option><option selected>Drop Features with r > 0.95</option><option>Drop Features with r > 0.90</option></select> </td> </tr>
+                                <tr> <td> Zero-Variance Filter </td> <td> <select class="select select-xs h-6 text-xs w-full"><option>Do not Drop Features</option><option selected>Drop Features with Zero-Variance</option></select> </td> </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <input type="radio" name="report_tabs" id="tab_model_train" class="tab" aria-label="Model Training" />
+                    <div class="tab-content border-base-300 bg-base-200 p-4">
+                        <h4 class="font-medium mb-2">Training Objective</h4>
+                        <table class="table table-xs bg-base-100">
+                            <tbody>
+                                <tr> <td class="w-36"> Target Column </td> <td> <select class="select select-xs h-6 text-xs w-full"><option>Temperature_C</option><option>Rainfall_mm</option><option selected>Sales_EUR</option></select> </td> </tr>
+                                <tr> <td> Optimization Metric </td> <td> <select class="select select-xs h-6 text-xs w-full"><option>R^2</option><option selected>Adjusted R^2</option><option>MAE</option><option>RMSE</option><option>MAPE</option></select> </td> </tr>
+                            </tbody>
+                        </table>
+                        <h4 class="font-medium mt-4 mb-2">Trained Models</h4>
+                        <div class="grid grid-cols-1 xl:grid-cols-2 gap-1">
+                            <label class="label"> <input type="checkbox" checked="checked" class="checkbox checkbox-xs"/>Linear Regression</label>
+                            <label class="label"> <input type="checkbox" checked="checked" class="checkbox checkbox-xs"/>Random Forest</label>
+                            <label class="label"> <input type="checkbox" checked="checked" class="checkbox checkbox-xs"/>Gradient Boosted Trees</label>
+                            <label class="label"> <input type="checkbox" checked="checked" class="checkbox checkbox-xs"/>XGBoost Tree Ensemble</label>
+                        </div>
+                        <h4 class="font-medium mt-4 mb-2">Data Partitioning</h4>
+                        <table class="table table-xs bg-base-100">
+                            <tbody>
+                                <tr> <td class="w-36"> Sampling Method </td> <td> <select class="select select-xs h-6 text-xs w-full"><option selected>Random</option><option>Stratified</option><option>Linear</option><option>First Rows</option></select> </td> </tr>
+                                <tr> <td> Test Set Ratio (%) </td> <td> <input type="number" class="input input-xs h-6 text-xs w-full" value="30"> </td> </tr>
+                                <tr> <td> Seed Value </td> <td> <input type="number" class="input input-xs h-6 text-xs w-full" value="481357"> </td> </tr>
+                            </tbody>
+                        </table>
+                        <div class="divider my-2"></div>
+                        <h4 class="font-medium mb-2">Model Performance</h4>
+                        <table class="table table-xs bg-base-100">
+                            <thead class="bg-base-200 text-xs">
+                                <th>Model</th> <th>Adjusted R^2</th>
+                            </thead>
+                            <tbody>
+                                <tr> <td class="w-36"> Linear Regression </td> <td> <input type="text" class="input input-xs h-6 text-xs w-full" value="0.886"> </td> </tr>
+                                <tr> <td> Random Forest </td> <td> <input type="text" class="input input-xs h-6 text-xs w-full" value="0.737"> </td> </tr>
+                                <tr> <td> Gradient Boosted Trees </td> <td> <input type="text" class="input input-xs h-6 text-xs w-full" value="0.873"> </td> </tr>
+                                <tr> <td> XGBoost Tree Ensemble </td> <td> <input type="text" class="input input-xs h-6 text-xs w-full" value="0.945"> </td> </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <input type="radio" name="report_tabs" id="tab_model_exp" class="tab" aria-label="Model Explanation" />
+                    <div class="tab-content border-base-300 bg-base-200 p-4">
+                        <h4 class="font-medium mb-2">Scope and Methodology</h4>
+                        <table class="table table-xs bg-base-100">
+                            <tbody>
+                                <tr> <td class="w-36"> Explanation Scope </td> <td> <select class="select select-xs h-6 text-xs w-full"><option>Local</option><option selected>Global</option></select> </td> </tr>
+                                <tr> <td> Methodology </td> <td> <select class="select select-xs h-6 text-xs w-full"><option selected>Permutation Importance</option><option>Global SHAP</option></select> </td> </tr>
+                            </tbody>
+                        </table>
+                        <h4 class="font-medium mt-4 mb-2">Model and Metrics</h4>
+                        <table class="table table-xs bg-base-100">
+                            <tbody>
+                                <tr> <td class="w-36"> Model to Explain </td> <td> <select class="select select-xs h-6 text-xs w-full"><option selected>Best Model</option><option>Linear Regression</option><option>Random Forest</option><option>Gradient Boosted Trees</option><option>XGBoost Tree Ensemble</option></select> </td> </tr>
+                                <tr> <td> Evaluation Metric </td> <td> <select class="select select-xs h-6 text-xs w-full"><option>R^2</option><option selected>Adjusted R^2</option><option>MAE</option><option>RMSE</option><option>MAPE</option></select> </td> </tr>
+                            </tbody>
+                        </table>
+                        <h4 class="font-medium mt-4 mb-2">Dataset and Shuffling</h4>
+                        <table class="table table-xs bg-base-100">
+                            <tbody>
+                                <tr> <td class="w-36"> Computation on </td> <td> <select class="select select-xs h-6 text-xs w-full"><option selected>Test Set</option><option>Training Set</option></select> </td> </tr>
+                                <tr> <td> Number of Shuffles/Feature </td> <td> <input type="number" class="input input-xs h-6 text-xs w-full" value="10"> </td> </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
-            </div>
-
         </div>
     </section>
 </div>
