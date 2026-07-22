@@ -10,7 +10,45 @@
     <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.10/dist/htmx.min.js" integrity="sha384-H5SrcfygHmAuTDZphMHqBJLc3FhssKjG7w/CeCpFReSfwBWDTKpkzPP8c+cLsK+V" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/alpinejs" defer></script>
 </head>
-<body x-data="{show : false}">
+<body x-data="{
+    show: false,
+    showTabs: false,
+    typedTitle: '',
+    typedIntro: '',
+    generating: false,
+    startGeneration() {
+        if (this.generating) return;
+        this.generating = true;
+        this.show = true;
+        this.typedTitle = '';
+        this.typedIntro = '';
+        this.showTabs = false;
+        
+        const title = 'Reproducibility Report for the AIce Cream Project';
+        const intro = 'This report contains the implementation details for the AutoML models created as part of the AIce Cream research project. It is structured to fulfill the reporting requriments outlined by the guidelines of the Experimental AI Journal.';
+        
+        let titleIdx = 0;
+        let titleTimer = setInterval(() => {
+            if (titleIdx < title.length) {
+                this.typedTitle = title.substring(0, titleIdx + 1);
+                titleIdx++;
+            } else {
+                clearInterval(titleTimer);
+                // Start intro
+                let introIdx = 0;
+                let introTimer = setInterval(() => {
+                    if (introIdx < intro.length) {
+                        this.typedIntro = intro.substring(0, introIdx + 1);
+                        introIdx++;
+                    } else {
+                        clearInterval(introTimer);
+                        setTimeout(() => { this.showTabs = true; }, 300);
+                    }
+                }, 15);
+            }
+        }, 20);
+    }
+}">
     <div class="flex flex-col h-svh justify-between">
         <!-- NAVBAR -->
         <div class="navbar bg-base-100 shadow-sm px-6">

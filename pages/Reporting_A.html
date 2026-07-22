@@ -45,7 +45,7 @@
                     <p x-show="show" x-transition.delay.2200ms class="material-symbols-outlined text-success" style="font-size: 1rem">check_circle</p>
                     <p x-show="show" x-transition.delay.2200ms class="text-xs font-medium">Succesfully generated!</p>
                 </div>
-                <button class="btn btn-sm btn-neutral" @click="show = true">Generate with AI</button>
+                <button class="btn btn-sm btn-neutral" @click="startGeneration()">Generate with AI</button>
             </div>
         </div>
     </section>
@@ -56,11 +56,11 @@
                 <h2 class="card-title text-sm">Report</h2>
                 <button class="btn btn-xs btn-neutral">Export</button>
             </div>
-            <div class="bg-base-200 border p-2 border-base-300 rounded h-fit text-xs p-4 text-justify" x-show="show" x-transition.delay.200ms.duration.2000ms.origin.top>
-                <h3 class="text-sm font-medium underline mb-2">Reproducibility Report for the AIce Cream Project</h3>
-                <p>This report contains the implementation details for the AutoML models created as part of the AIce Cream research project. It is structured to fulfill the reporting requriments outlined by the guidelines of the Experimental AI Journal.</p>
-                <div class="divider my-2"></div>
-                <div class="tabs tabs-sm tabs-lift">
+            <div class="bg-base-200 border p-2 border-base-300 rounded h-fit text-xs p-4 text-justify" x-show="show">
+                <h3 class="text-sm font-medium underline mb-2"><span x-text="typedTitle">Reproducibility Report for the AIce Cream Project</span></h3>
+                <p><span x-text="typedIntro">This report contains the implementation details for the AutoML models created as part of the AIce Cream research project. It is structured to fulfill the reporting requriments outlined by the guidelines of the Experimental AI Journal.</span></p>
+                <div class="divider my-2" x-show="showTabs" x-transition></div>
+                <div class="tabs tabs-sm tabs-lift" x-show="showTabs" x-transition>
                     <input type="radio" name="report_tabs" id="tab_data_import" class="tab" aria-label="Data Import" checked="checked" />
                     <div class="tab-content border-base-300 bg-base-200 p-4">
                         <h4 class="font-medium mb-2">Import Information</h4>
