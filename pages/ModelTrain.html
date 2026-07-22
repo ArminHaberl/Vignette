@@ -36,6 +36,9 @@
                 <label class="label"> <input type="checkbox" checked="checked" class="checkbox checkbox-sm" disabled/>Gradient Boosted Trees</label>
                 <label class="label"> <input type="checkbox" checked="checked" class="checkbox checkbox-sm" disabled/>XGBoost Tree Ensemble</label>
             </div>
+            <div class="flex justify-end">
+                <label for="advanced-settings-modal" class="btn btn-sm btn-outline mt-2">Advanced Settings</label>
+            </div>
             <h2 class="card-title text-sm mt-4">Data Partitioning</h2>
             <div class="grid grid-cols-1 xl:grid-cols-2 gap-2">
                 <fieldset class="fieldset">
@@ -70,9 +73,80 @@
     <section class="card bg-base-100 border border-base-300 shadow">
         <div class="card-body">
             <h2 class="card-title text-sm">Model Performance</h2>
-            <div role="tablist" class="tabs tabs-sm tabs-lift">
-                <a role="tab" class="tab tab-disabled">Training Progress</a>
-                <a role="tab" class="tab tab-active">Model Comparison</a>
+            <div class="tabs tabs-sm tabs-lift">
+                <input type="radio" name="perf_tabs" id="tab_log" class="tab" aria-label="Training Log" />
+                <div class="tab-content border-base-300 bg-base-100 p-4 max-h-80 overflow-y-auto">
+                    <div class="font-mono text-xs leading-relaxed">
+                        <p class="text-success">[2026-07-22 09:31:02] Starting model training pipeline...</p>
+                        <p class="text-info">[09:31:02] Data loaded: 3698 rows, 6 features</p>
+                        <p class="text-info">[09:31:02] Target column: Sales_EUR</p>
+                        <p class="text-info">[09:31:02] Train/Test split: 70/30 (random seed: 481357)</p>
+                        <div class="divider my-1"></div>
+                        <p class="font-bold">--- Linear Regression (OLS) ---</p>
+                        <p>[09:31:02] Initializing Linear Regression with Fit Intercept</p>
+                        <p>[09:31:02] Computing coefficients via normal equations...</p>
+                        <p>[09:31:02] Coefficients: [Temp_C=22.14, Is_Weekend=18.93, Is_Holiday=32.51, Rainfall_mm=-14.78, Flavour_Vanilla=5.22, Flavour_Chocolate=12.67]</p>
+                        <p>[09:31:02] Intercept: 124.57</p>
+                        <p>[09:31:02] Train Adjusted R²: 0.891</p>
+                        <p class="text-success">[09:31:02] Test Adjusted R²: 0.886</p>
+                        <p>[09:31:02] <span class="text-success">✅</span> Completed in 0.1s</p>
+                        <div class="divider my-1"></div>
+                        <p class="font-bold">--- Random Forest (100 estimators) ---</p>
+                        <p>[09:31:02] Building Random Forest with bootstrap sampling...</p>
+                        <p>[09:31:02] Tree   1/100 — max_depth: unlimited, min_samples_split: 2</p>
+                        <p>[09:31:03] Tree  25/100 — OOB error estimate: 0.283</p>
+                        <p>[09:31:03] Tree  50/100 — OOB error estimate: 0.276</p>
+                        <p>[09:31:04] Tree  75/100 — OOB error estimate: 0.269</p>
+                        <p>[09:31:04] Tree 100/100 — OOB error estimate: 0.264</p>
+                        <p>[09:31:04] Final OOB Score: 0.724</p>
+                        <p>[09:31:04] Feature importance: Temp_C=0.41, Rainfall_mm=0.27, Is_Weekend=0.18, Is_Holiday=0.09, Flavour=0.05</p>
+                        <p>[09:31:04] Train Adjusted R²: 0.981</p>
+                        <p class="text-warning">⚠️ Warning: Train R² (0.981) significantly higher than Test R² (0.737)</p>
+                        <p class="text-success">[09:31:04] Test Adjusted R²: 0.737</p>
+                        <p>[09:31:04] <span class="text-success">✅</span> Completed in 2.4s</p>
+                        <div class="divider my-1"></div>
+                        <p class="font-bold">--- Gradient Boosted Trees (100 estimators, lr=0.1) ---</p>
+                        <p>[09:31:04] Initializing GBT with 100 boosting rounds</p>
+                        <p>[09:31:04] Learning rate: 0.1 | Max depth: 3 | Subsample: 1.0</p>
+                        <p>[09:31:05] Iter  10 — Training loss: 124.52 — Validation loss: 138.71</p>
+                        <p>[09:31:05] Iter  20 — Training loss: 78.34 — Validation loss: 89.22</p>
+                        <p>[09:31:06] Iter  30 — Training loss: 52.17 — Validation loss: 61.43</p>
+                        <p>[09:31:06] Iter  40 — Training loss: 36.88 — Validation loss: 45.12</p>
+                        <p>[09:31:07] Iter  50 — Training loss: 27.33 — Validation loss: 32.08</p>
+                        <p>[09:31:07] Iter  60 — Training loss: 20.14 — Validation loss: 24.76</p>
+                        <p>[09:31:07] Iter  70 — Training loss: 15.82 — Validation loss: 19.33</p>
+                        <p>[09:31:08] Iter  80 — Training loss: 12.47 — Validation loss: 15.81</p>
+                        <p class="text-warning">[09:31:08] ⚠️ Validation loss plateaued — early stopping triggered at iteration 87</p>
+                        <p>[09:31:08] Iter  87 — Training loss: 10.14 — Validation loss: 13.62</p>
+                        <p>[09:31:08] Train Adjusted R²: 0.914</p>
+                        <p class="text-success">[09:31:08] Test Adjusted R²: 0.873</p>
+                        <p>[09:31:08] <span class="text-success">✅</span> Completed in 4.1s</p>
+                        <div class="divider my-1"></div>
+                        <p class="font-bold">--- XGBoost Tree Ensemble (100 rounds, eta=0.3) ---</p>
+                        <p>[09:31:08] Initializing XGBoost with max_depth=6, subsample=1.0, colsample_bytree=1.0</p>
+                        <p>[09:31:08] Regularization: gamma=0.0, lambda=1.0, alpha=0.0</p>
+                        <p class="text-info">[09:31:09] [10]  train-rmse: 52.31  test-rmse: 58.72</p>
+                        <p class="text-info">[09:31:09] [20]  train-rmse: 28.47  test-rmse: 34.15</p>
+                        <p class="text-info">[09:31:10] [30]  train-rmse: 16.83  test-rmse: 21.44</p>
+                        <p class="text-info">[09:31:10] [40]  train-rmse: 10.22  test-rmse: 14.07</p>
+                        <p class="text-info">[09:31:10] [50]  train-rmse: 6.84   test-rmse: 10.38</p>
+                        <p class="text-info">[09:31:11] [60]  train-rmse: 4.51   test-rmse: 7.92</p>
+                        <p class="text-info">[09:31:11] [70]  train-rmse: 3.12   test-rmse: 6.14</p>
+                        <p class="text-info">[09:31:11] [80]  train-rmse: 2.08   test-rmse: 5.03</p>
+                        <p class="text-info">[09:31:12] [90]  train-rmse: 1.47   test-rmse: 4.38</p>
+                        <p class="text-info">[09:31:12] [100] train-rmse: 1.03   test-rmse: 4.08</p>
+                        <p class="text-warning">[09:31:12] 🏆 Best iteration: 94 (test-rmse: 4.05)</p>
+                        <p>[09:31:12] Train Adjusted R²: 0.961</p>
+                        <p class="text-success">[09:31:12] Test Adjusted R²: 0.945</p>
+                        <p>[09:31:12] <span class="text-success">✅</span> Completed in 4.3s</p>
+                        <div class="divider my-1"></div>
+                        <p class="font-bold text-primary">══════════════════════════════════════════════</p>
+                        <p class="font-bold text-primary">   Training Complete — Total time: 11.0s</p>
+                        <p class="font-bold text-primary">   Best Model: XGBoost Tree Ensemble (Adjusted R²: 0.945)</p>
+                        <p class="font-bold text-primary">══════════════════════════════════════════════</p>
+                    </div>
+                </div>
+                <input type="radio" name="perf_tabs" id="tab_comparison" class="tab" aria-label="Model Comparison" checked="checked" />
                 <div class="tab-content border-base-300 bg-base-100 p-4">
                     <h3 class="card-title text-xs my-2">Performance (adjusted R^2)</h3>
                     <div class="grid grid-cols-2 xl:grid-cols-4 items-center gap-2">
@@ -108,4 +182,121 @@
             </div>
         </div>
     </section>
+</div>
+
+<!-- Advanced Settings Modal -->
+<input type="checkbox" id="advanced-settings-modal" class="modal-toggle" />
+<div class="modal" role="dialog">
+    <div class="modal-box max-w-3xl w-11/12">
+        <label for="advanced-settings-modal" class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</label>
+        <h3 class="text-lg font-bold">Advanced Model Settings</h3>
+        <p class="text-xs py-1">Configure hyperparameters for each model type.</p>
+        <div class="tabs tabs-sm tabs-lift mt-4">
+            <input type="radio" name="model_tabs" id="tab_lr" class="tab" aria-label="Linear Regression" checked="checked" />
+            <div class="tab-content border-base-300 bg-base-100 p-4">
+                <div class="grid grid-cols-2 gap-2">
+                    <fieldset class="fieldset">
+                        <legend class="label text-xs">Fit Intercept</legend>
+                        <label class="label cursor-pointer justify-start gap-2"> <input type="checkbox" class="checkbox checkbox-xs" checked disabled /> <span class="text-xs">Yes</span> </label>
+                    </fieldset>
+                    <fieldset class="fieldset">
+                        <legend class="label text-xs">Normalize</legend>
+                        <label class="label cursor-pointer justify-start gap-2"> <input type="checkbox" class="checkbox checkbox-xs" disabled /> <span class="text-xs">Yes</span> </label>
+                    </fieldset>
+                    <fieldset class="fieldset">
+                        <legend class="label text-xs">Regularization (alpha)</legend>
+                        <input type="number" class="input input-xs" value="0.0" step="0.1" disabled />
+                    </fieldset>
+                </div>
+            </div>
+            <input type="radio" name="model_tabs" id="tab_rf" class="tab" aria-label="Random Forest" />
+            <div class="tab-content border-base-300 bg-base-100 p-4">
+                <div class="grid grid-cols-2 gap-2">
+                    <fieldset class="fieldset">
+                        <legend class="label text-xs">Number of Estimators</legend>
+                        <input type="number" class="input input-xs" value="100" disabled />
+                    </fieldset>
+                    <fieldset class="fieldset">
+                        <legend class="label text-xs">Max Depth</legend>
+                        <input type="number" class="input input-xs" value="" placeholder="None (unlimited)" disabled />
+                    </fieldset>
+                    <fieldset class="fieldset">
+                        <legend class="label text-xs">Min Samples Split</legend>
+                        <input type="number" class="input input-xs" value="2" disabled />
+                    </fieldset>
+                    <fieldset class="fieldset">
+                        <legend class="label text-xs">Min Samples Leaf</legend>
+                        <input type="number" class="input input-xs" value="1" disabled />
+                    </fieldset>
+                    <fieldset class="fieldset">
+                        <legend class="label text-xs">Bootstrap</legend>
+                        <label class="label cursor-pointer justify-start gap-2"> <input type="checkbox" class="checkbox checkbox-xs" checked disabled /> <span class="text-xs">Yes</span> </label>
+                    </fieldset>
+                </div>
+            </div>
+            <input type="radio" name="model_tabs" id="tab_gbt" class="tab" aria-label="Gradient Boosted Trees" />
+            <div class="tab-content border-base-300 bg-base-100 p-4">
+                <div class="grid grid-cols-2 gap-2">
+                    <fieldset class="fieldset">
+                        <legend class="label text-xs">Number of Estimators</legend>
+                        <input type="number" class="input input-xs" value="100" disabled />
+                    </fieldset>
+                    <fieldset class="fieldset">
+                        <legend class="label text-xs">Learning Rate</legend>
+                        <input type="number" class="input input-xs" value="0.1" step="0.01" disabled />
+                    </fieldset>
+                    <fieldset class="fieldset">
+                        <legend class="label text-xs">Max Depth</legend>
+                        <input type="number" class="input input-xs" value="3" disabled />
+                    </fieldset>
+                    <fieldset class="fieldset">
+                        <legend class="label text-xs">Subsample</legend>
+                        <input type="number" class="input input-xs" value="1.0" step="0.1" min="0" max="1" disabled />
+                    </fieldset>
+                </div>
+            </div>
+            <input type="radio" name="model_tabs" id="tab_xgb" class="tab" aria-label="XGBoost Tree Ensemble" />
+            <div class="tab-content border-base-300 bg-base-100 p-4">
+                <div class="grid grid-cols-2 gap-2">
+                    <fieldset class="fieldset">
+                        <legend class="label text-xs">Number of Estimators</legend>
+                        <input type="number" class="input input-xs" value="100" disabled />
+                    </fieldset>
+                    <fieldset class="fieldset">
+                        <legend class="label text-xs">Learning Rate (eta)</legend>
+                        <input type="number" class="input input-xs" value="0.3" step="0.01" disabled />
+                    </fieldset>
+                    <fieldset class="fieldset">
+                        <legend class="label text-xs">Max Depth</legend>
+                        <input type="number" class="input input-xs" value="6" disabled />
+                    </fieldset>
+                    <fieldset class="fieldset">
+                        <legend class="label text-xs">Subsample</legend>
+                        <input type="number" class="input input-xs" value="1.0" step="0.1" min="0" max="1" disabled />
+                    </fieldset>
+                    <fieldset class="fieldset">
+                        <legend class="label text-xs">Colsample by Tree</legend>
+                        <input type="number" class="input input-xs" value="1.0" step="0.1" min="0" max="1" disabled />
+                    </fieldset>
+                    <fieldset class="fieldset">
+                        <legend class="label text-xs">Gamma</legend>
+                        <input type="number" class="input input-xs" value="0.0" step="0.1" disabled />
+                    </fieldset>
+                    <fieldset class="fieldset">
+                        <legend class="label text-xs">Lambda (reg_lambda)</legend>
+                        <input type="number" class="input input-xs" value="1.0" step="0.1" disabled />
+                    </fieldset>
+                    <fieldset class="fieldset">
+                        <legend class="label text-xs">Alpha (reg_alpha)</legend>
+                        <input type="number" class="input input-xs" value="0.0" step="0.1" disabled />
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+        <div class="modal-action">
+            <label for="advanced-settings-modal" class="btn btn-sm">Cancel</label>
+            <label for="advanced-settings-modal" class="btn btn-sm btn-neutral">Save</label>
+        </div>
+    </div>
+    <label class="modal-backdrop" for="advanced-settings-modal">Close</label>
 </div>
